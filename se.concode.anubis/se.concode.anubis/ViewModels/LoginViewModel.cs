@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using se.concode.anubis.Services.UI;
 using Xamarin.Forms;
+using se.concode.anubis.Helpers;
 
 namespace se.concode.anubis.ViewModels
 {
@@ -74,31 +75,27 @@ namespace se.concode.anubis.ViewModels
             MessagingCenter.Send<ViewModelBase>(this, "VALIDATIONERROR");
             return;
          }
-
-         _loadingService.Show();
-
-         var apiService = new DoxApiService();
-         var requestModel = new DoxUserRequestModel
-         {
-            UserName = Username,
-            Password = Password.ToSha1(),
-            UsePortalLogin = true
-         };
-
-         var responseModel = await apiService.GetPortalTicket(requestModel);
-
-         if (null == responseModel)
-         {
-            MessagingCenter.Send<ViewModelBase>(this, "VALIDATIONERROR");
-            _loadingService.Hide();
-            return;
-         }
-
-         Settings.Ticket = responseModel.Ticket;
-         Settings.LoginName = Username;
-
-         Debug.WriteLine(Settings.UserName);
-
+//         _loadingService.Show();
+//
+//         var apiService = new DoxApiService();
+//         var requestModel = new DoxUserRequestModel
+//         {
+//            UserName = Username,
+//            Password = Password.ToSha1(),
+//            UsePortalLogin = true
+//         };
+//
+//         var responseModel = await apiService.GetPortalTicket(requestModel);
+//
+//         if (null == responseModel)
+//         {
+//            MessagingCenter.Send<ViewModelBase>(this, "VALIDATIONERROR");
+//            _loadingService.Hide();
+//            return;
+//         }
+//
+//         Settings.Ticket = responseModel.Ticket;
+//         Settings.LoginName = Username;
          MessagingCenter.Send<LoginViewModel>(this, "PORTALLOGINACCEPTED");
       }
 
