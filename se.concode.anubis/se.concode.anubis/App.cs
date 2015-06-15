@@ -1,33 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 using Xamarin.Forms;
 
 namespace se.concode.anubis
 {
-   public class App : Application
+   public class App : Application, ILoginManager
    {
+      NavigationPage _mainPage;
       public App()
       {
-         // The root page of your application
-         MainPage = new ContentPage
+         _mainPage = new NavigationPage(new ServersPage())
          {
-            Content = new StackLayout
-            {
-               VerticalOptions = LayoutOptions.Center,
-               Children = {
-                  new Label {
-                     XAlign = TextAlignment.Center,
-                     Text = "Welcome to Xamarin Forms!"
-                  }
-               }
-            }
+            BarBackgroundColor = Color.FromHex("000000"),
+            BarTextColor = Color.White,
          };
+
+         // we remember if they're logged in, 
+         // and only display the login page if they're not
+         if (!string.IsNullOrEmpty(Settings.Ticket))
+         {
+            MainPage = _mainPage;
+         }
+         else
+         {
+            MainPage = new LoginModalPage(this);
+         }
       }
 
-      protected override void OnStart()
+      public void ShowMainPage()
+      {
+         MainPage = _mainPage;
+      }
+
+      public void Logout()
+      {
+         Settings.Ticket = string.Empty;
+         MainPage = new LoginModalPage(this);
+      }
+
+   protected override void OnStart()
       {
          // Handle when your app starts
       }
