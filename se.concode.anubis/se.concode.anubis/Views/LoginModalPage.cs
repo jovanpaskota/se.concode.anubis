@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-
 using Xamarin.Forms;
 
 namespace se.concode.anubis.Views
 {
    public class LoginModalPage : CarouselPage
    {
-      ContentPage login, create;
+      readonly ContentPage login;
 
       public LoginModalPage(ILoginManager ilm)
       {

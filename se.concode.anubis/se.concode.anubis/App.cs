@@ -1,4 +1,6 @@
 ﻿
+using se.concode.anubis.Helpers;
+using se.concode.anubis.Views;
 using Xamarin.Forms;
 
 namespace se.concode.anubis

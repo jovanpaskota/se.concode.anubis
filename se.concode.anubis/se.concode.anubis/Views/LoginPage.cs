@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-
+﻿using GalaSoft.MvvmLight;
+using se.concode.anubis.Services;
+using se.concode.anubis.ViewModels;
 using Xamarin.Forms;
 
 namespace se.concode.anubis.Views
