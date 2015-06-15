@@ -12,7 +12,7 @@ namespace se.concode.anubis.Views
          var viewModel = new LoginViewModel();
          BindingContext = viewModel;
 
-         BackgroundColor = AppConstants.ToolbarBackground;
+         BackgroundColor = AppConstants.LoginBackground;
 
          MessagingCenter.Subscribe<ViewModelBase>(this, "VALIDATIONERROR", (sender) => DisplayAlert("Validation Error", "Username and Password are required", "Re-try"));
 

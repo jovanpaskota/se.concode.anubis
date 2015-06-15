@@ -21,6 +21,8 @@ namespace se.concode.anubis
 
       public static readonly Color ToolbarBackground = Device.OnPlatform(iOS: Color.FromHex("292929"), Android: Color.FromHex("292929"), WinPhone: Color.FromHex("292929"));
 
+      public static readonly Color LoginBackground = Device.OnPlatform(iOS: Color.FromHex("0099CD"), Android: Color.FromHex("0099CD"), WinPhone: Color.FromHex("0099CD"));
+
       public static readonly Font CommentTitleFont = Font.SystemFontOfSize(Device.OnPlatform(iOS: 16, Android: 18, WinPhone: 20), FontAttributes.None);
 
       public static readonly Font CommentDateFont = Font.SystemFontOfSize(Device.OnPlatform(iOS: 12, Android: 14, WinPhone: 16), FontAttributes.Italic);
