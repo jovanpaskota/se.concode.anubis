@@ -7,7 +7,7 @@ namespace se.concode.anubis
 {
    public interface IMinionsService
    {
-      Task<List<Minion>> GetConferences(Priority priority); 
-      Task<Minion> GetConference(Priority priority, string slug); 
+      Task<List<Minion>> GetMinions(Priority priority); 
+      Task<Minion> GetMinion(Priority priority, string slug); 
    }
 }

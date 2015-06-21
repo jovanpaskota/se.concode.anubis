@@ -20,7 +20,7 @@ namespace se.concode.anubis
          _apiService = apiService;
       }
 
-      public async Task<List<Minion>> GetConferences(Priority priority)
+      public async Task<List<Minion>> GetMinions(Priority priority)
       {
          var cache = BlobCache.LocalMachine;
          var cachedMinions = cache.GetAndFetchLatest("minions", () => GetRemoteMinionsAsync(priority),
@@ -34,7 +34,7 @@ namespace se.concode.anubis
          return minions;
       }
 
-      public async Task<Minion> GetConference(Priority priority, string slug)
+      public async Task<Minion> GetMinion(Priority priority, string slug)
       {
          var cachedMinion = BlobCache.LocalMachine.GetAndFetchLatest(slug, () => GetRemoteMinion(priority, slug), offset =>
             {
